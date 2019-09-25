@@ -199,10 +199,9 @@ export default class extends Component {
   componentWillReceiveProps(nextProps) {
     if (!nextProps.autoplay && this.autoplayTimer)
       clearTimeout(this.autoplayTimer)
-    if (nextProps.index === this.props.index) return
-    this.setState(
-      this.initState(nextProps, this.props.index !== nextProps.index)
-    )
+    if (this.props.index !== nextProps.index) {
+      this.setState(this.initState(nextProps, this.props.index !== nextProps.index))
+    }
   }
 
   componentDidMount() {
